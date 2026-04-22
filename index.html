@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>鯊速貸 - 快速借款平台</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== Header ===== */
+header {
+    background: #0a2540;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 70px;
+}
+
+/* ===== 橘色流光背景 ===== */
+.hero, .section {
+    background: linear-gradient(270deg, #ff9a00, #ffb347, #ffd27f, #ff9a00);
+    background-size: 400% 400%;
+    animation: bgFlow 8s ease infinite;
+}
+
+@keyframes bgFlow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ===== HERO ===== */
+.hero {
+    padding: 90px 20px;
+}
+
+.hero-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== 按鈕 ===== */
+.line-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #00cfff, #00e0ff, #00cfff);
+    background-size: 200%;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: btnFlow 3s linear infinite;
+    transition: 0.3s;
+}
+
+@keyframes btnFlow {
+    0% {background-position: 0%;}
+    100% {background-position: 200%;}
+}
+
+.line-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0,200,255,0.8);
+}
+
+/* ===== 聊天動畫 ===== */
+.chat-demo {
+    width: 320px;
+}
+
+.chat-bubble {
+    padding: 12px 16px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    animation: stackIn 0.6s forwards;
+}
+
+.chat-bubble:nth-child(1){animation-delay:0.3s;}
+.chat-bubble:nth-child(2){animation-delay:0.8s;}
+.chat-bubble:nth-child(3){animation-delay:1.3s;}
+.chat-bubble:nth-child(4){animation-delay:1.8s;}
+
+@keyframes stackIn {
+    0% {opacity:0; transform:translateY(40px) scale(0.9);}
+    60% {opacity:1; transform:translateY(-5px) scale(1.02);}
+    100% {opacity:1; transform:translateY(0) scale(1);}
+}
+
+.chat-bubble:hover {
+    transform: translateY(-6px) scale(1.05);
+}
+
+.user { background:#eee; }
+.bot { background:#00cfff; color:white; }
+
+/* ===== 新功能區 ===== */
+.feature-zone {
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-zone::before {
+    content:"";
+    position:absolute;
+    width:400px;height:400px;
+    background:radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+    top:-100px;left:-100px;
+}
+
+.feature-zone::after {
+    content:"";
+    position:absolute;
+    width:300px;height:300px;
+    background:radial-gradient(circle, rgba(255,200,0,0.3), transparent);
+    bottom:-100px;right:-100px;
+}
+
+.feature-inner {
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.feature-left h2 {
+    font-size:28px;
+}
+
+.stats {
+    margin:20px 0;
+}
+
+.stat {
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.feature-right {
+    display:flex;
+    gap:20px;
+}
+
+/* 🔥 淺藍卡片 */
+.icon-card {
+    background: #e6f7ff;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    width:100px;
+    transition:0.3s;
+}
+
+.icon-card:hover {
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== 鯊魚 ===== */
+.shark-section {
+    padding:120px 20px;
+    background:url('shark-bg.png') right center no-repeat;
+    background-size:auto 100%;
+    position: relative;
+}
+
+.shark-content {
+    max-width:500px;
+    margin-left:5%;
+    color:white;
+}
+
+/* ===== 成交浮框（👉 這裡已改為置中） ===== */
+.fake-orders {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    pointer-events: none;
+}
+
+.order {
+    background: rgba(255,255,255,0.95);
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: orderPop 4s forwards;
+}
+
+@keyframes orderPop {
+    0% {opacity:0; transform:translateY(30px);}
+    20% {opacity:1; transform:translateY(0);}
+    80% {opacity:1;}
+    100% {opacity:0; transform:translateY(-20px);}
+}
+
+/* ===== 卡片 ===== */
+.section {
+    padding:40px 20px;
+}
+
+.card {
+    background:rgba(255,255,255,0.9);
+    padding:20px;
+    margin:15px auto;
+    max-width:900px;
+    border-radius:10px;
+}
+
+/* ===== Footer ===== */
+footer {
+    background:#0a2540;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* RWD */
+@media (max-width:768px){
+    .hero-inner, .feature-inner {
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-wrap">
+        <img src="shark-logo.png" class="logo">
+        <h1>鯊速貸</h1>
+    </div>
+    <p>快速、安全、即時借款服務</p>
+</header>
+
+<div class="hero">
+    <div class="hero-inner">
+        <div>
+            <h2>最快10分鐘審核</h2>
+            <p>免擔保・低門檻・全天候申請</p>
+            <a href="#" class="line-btn">立即加入LINE借款</a>
+        </div>
+
+        <div class="chat-demo">
+            <div class="chat-bubble user">我現在急需資金，可以申請嗎？</div>
+            <div class="chat-bubble bot">可以的 👍 最快10分鐘完成審核！</div>
+            <div class="chat-bubble user">需要擔保嗎？</div>
+            <div class="chat-bubble bot">不需要擔保，流程簡單快速👌</div>
+        </div>
+    </div>
+</div>
+
+<div class="feature-zone">
+    <div class="feature-inner">
+        <div class="feature-left">
+            <h2>為什麼選擇鯊速貸？</h2>
+            <p>快速、安全、透明，讓借款變簡單</p>
+
+            <div class="stats">
+                <div class="stat">✔ 3,200+ 成功案例</div>
+                <div class="stat">✔ 最快10分鐘審核</div>
+                <div class="stat">✔ 95% 通過率</div>
+            </div>
+
+            <a href="#" class="line-btn">立即諮詢</a>
+        </div>
+
+        <div class="feature-right">
+            <div class="icon-card">⚡<br>快速</div>
+            <div class="icon-card">🔒<br>安全</div>
+            <div class="icon-card">💬<br>回覆</div>
+        </div>
+    </div>
+</div>
+
+<div class="shark-section">
+    <div class="shark-content">
+        <h2>快速取得資金</h2>
+        <p>簡單流程・安全可靠・專人服務</p>
+        <a href="#" class="line-btn">立即諮詢</a>
+    </div>
+
+    <!-- 成交浮框 -->
+    <div class="fake-orders" id="orders"></div>
+</div>
+
+<div class="section">
+    <h2 style="text-align:center;">服務內容</h2>
+    <div class="card">💰 小額借款</div>
+    <div class="card">⚡ 快速審核</div>
+    <div class="card">🔒 資料保護</div>
+</div>
+
+<footer>
+© 2026 鯊速貸
+</footer>
+
+<script>
+const names = ["張先生","李先生","王小姐","陳先生","林小姐","黃先生","吳小姐"];
+function randomOrder(){
+    const name = names[Math.floor(Math.random()*names.length)];
+    const amount = Math.floor(Math.random()*90000)+10000;
+    return `💰 ${name} 在1分鐘前成功貸款 ${amount} 元`;
+}
+
+function spawnOrder(){
+    const box = document.getElementById("orders");
+    const div = document.createElement("div");
+    div.className = "order";
+    div.style.animationDuration = (3 + Math.random()*3) + "s";
+    div.innerText = randomOrder();
+    box.appendChild(div);
+    setTimeout(()=>div.remove(),6000);
+}
+
+setInterval(spawnOrder,1200);
+</script>
+
+</body>
+</html>

@@ -46,6 +46,42 @@ header {
 /* ===== HERO ===== */
 .hero {
     padding: 90px 20px;
+    position: relative;
+}
+
+/* 🔥 強調文字 */
+.hero-highlight {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* 🔥 假在線人數 */
+.fake-live {
+    position: absolute;
+    top: 120px;
+    left: 10%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* ⭐⭐⭐ 修正1：避免手機擋到主標 ⭐⭐⭐ */
+@media (max-width:768px){
+    .fake-live {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 140px; /* 🔥往下移避免蓋住 */
+    }
+
+    .hero-highlight{
+        margin-top: 40px; /* 🔥讓標題往下 */
+    }
 }
 
 .hero-inner {
@@ -56,32 +92,33 @@ header {
     align-items: center;
 }
 
-/* ===== 按鈕（黑金升級版） ===== */
+/* ===== 按鈕 ===== */
 .line-btn {
     display: inline-block;
-    background: linear-gradient(120deg, #000000, #1a1a1a, #c9a74d, #000000);
-    background-size: 300%;
-    color: #f5d27a;
-    padding: 18px 36px;   /* 變大 */
-    border-radius: 10px;
+    background: linear-gradient(90deg, #000, #bfa14a, #000);
+    background-size: 200%;
+    color: #fff;
+    padding: 22px 45px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;      /* 字體變大 */
-    margin-top: 30px;     /* 與上方距離 */
-    margin-bottom: 20px;  /* 🔥 與下方拉開 */
-    animation: btnGoldFlow 4s linear infinite;
+    margin-top: 30px;
+    animation: btnFlow 3s linear infinite;
     transition: 0.3s;
-    letter-spacing: 1px;
+    font-size: 20px;
+
+    /* ⭐⭐⭐ 修正3：避免超出框 ⭐⭐⭐ */
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
-@keyframes btnGoldFlow {
+@keyframes btnFlow {
     0% {background-position: 0%;}
     100% {background-position: 200%;}
 }
 
 .line-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px rgba(255,215,100,0.7);
+    transform: scale(1.1);
 }
 
 /* ===== 聊天動畫 ===== */
@@ -93,34 +130,14 @@ header {
     padding: 12px 16px;
     border-radius: 16px;
     margin-bottom: 12px;
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    animation: stackIn 0.6s forwards;
-}
-
-.chat-bubble:nth-child(1){animation-delay:0.3s;}
-.chat-bubble:nth-child(2){animation-delay:0.8s;}
-.chat-bubble:nth-child(3){animation-delay:1.3s;}
-.chat-bubble:nth-child(4){animation-delay:1.8s;}
-
-@keyframes stackIn {
-    0% {opacity:0; transform:translateY(40px) scale(0.9);}
-    60% {opacity:1; transform:translateY(-5px) scale(1.02);}
-    100% {opacity:1; transform:translateY(0) scale(1);}
-}
-
-.chat-bubble:hover {
-    transform: translateY(-6px) scale(1.05);
 }
 
 .user { background:#eee; }
 .bot { background:#00cfff; color:white; }
 
-/* ===== 新功能區 ===== */
+/* ===== 功能區 ===== */
 .feature-zone {
     padding: 80px 20px;
-    position: relative;
-    overflow: hidden;
 }
 
 .feature-inner {
@@ -132,40 +149,23 @@ header {
     gap:40px;
 }
 
-.feature-left h2 {
-    font-size:28px;
-}
-
-.stats {
-    margin:20px 0;
-}
-
-.stat {
-    margin-bottom:8px;
-    font-weight:bold;
-}
-
-.feature-right {
+/* ⭐⭐⭐ 修正2：卡片歪掉 → 置中 + 間距 ⭐⭐⭐ */
+.feature-right{
     display:flex;
-    gap:20px;
+    flex-direction:column;
+    align-items:center;
+    gap:20px; /* 🔥分開 */
 }
 
-/* 淺藍卡片（你之前指定） */
 .icon-card {
     background: #e6f7ff;
     padding:20px;
     border-radius:12px;
     text-align:center;
     width:100px;
-    transition:0.3s;
 }
 
-.icon-card:hover {
-    transform:translateY(-8px) scale(1.05);
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* ===== 鯊魚 ===== */
+/* ===== 鯊魚區 ===== */
 .shark-section {
     padding:120px 20px;
     background:url('shark-bg.png') right center no-repeat;
@@ -178,7 +178,7 @@ header {
     color:white;
 }
 
-/* ===== 卡片 ===== */
+/* ===== 服務 ===== */
 .section {
     padding:40px 20px;
 }
@@ -191,20 +191,11 @@ header {
     border-radius:10px;
 }
 
-/* ===== Footer ===== */
 footer {
     background:#0a2540;
     color:white;
     text-align:center;
     padding:20px;
-}
-
-/* RWD */
-@media (max-width:768px){
-    .hero-inner, .feature-inner {
-        flex-direction:column;
-        text-align:center;
-    }
 }
 </style>
 </head>
@@ -220,23 +211,27 @@ footer {
 </header>
 
 <div class="hero">
+
+    <div class="hero-highlight">
+        1-20萬　當天申請　當天撥款
+    </div>
+
+    <div class="fake-live" id="liveBox">
+        🔴 目前線上 128 人・正在申請中
+    </div>
+
     <div class="hero-inner">
         <div>
-            <!-- 🔥 改成主打月繳 -->
-            <h2>輕鬆月繳・快速核貸</h2>
-            <p>免擔保・低門檻・彈性月付方案</p>
-
-            <!-- 🔥 LINE連結已套用 -->
-            <a href="https://line.me/ti/p/@841lsoqs" class="line-btn" target="_blank">
-                立即加入我們
-            </a>
+            <h2>快速核貸・輕鬆取得資金</h2>
+            <p>免擔保・低門檻・高通過率</p>
+            <a href="https://line.me/ti/p/~@841lsoqs" class="line-btn">立即加入LINE借款</a>
         </div>
 
         <div class="chat-demo">
             <div class="chat-bubble user">我現在急需資金，可以申請嗎？</div>
             <div class="chat-bubble bot">可以的 👍 最快10分鐘完成審核！</div>
-            <div class="chat-bubble user">可以月繳嗎？</div>
-            <div class="chat-bubble bot">可以分期月付，壓力更輕👌</div>
+            <div class="chat-bubble user">需要擔保嗎？</div>
+            <div class="chat-bubble bot">不需要擔保，流程簡單快速👌</div>
         </div>
     </div>
 </div>
@@ -253,9 +248,7 @@ footer {
                 <div class="stat">✔ 95% 通過率</div>
             </div>
 
-            <a href="https://line.me/ti/p/@841lsoqs" class="line-btn" target="_blank">
-                立即諮詢
-            </a>
+            <a href="https://line.me/ti/p/~@841lsoqs" class="line-btn">立即諮詢</a>
         </div>
 
         <div class="feature-right">
@@ -270,9 +263,7 @@ footer {
     <div class="shark-content">
         <h2>快速取得資金</h2>
         <p>簡單流程・安全可靠・專人服務</p>
-        <a href="https://line.me/ti/p/@841lsoqs" class="line-btn" target="_blank">
-            立即諮詢
-        </a>
+        <a href="https://line.me/ti/p/~@841lsoqs" class="line-btn">立即諮詢</a>
     </div>
 </div>
 
@@ -286,6 +277,14 @@ footer {
 <footer>
 © 2026 鯊速貸
 </footer>
+
+<script>
+setInterval(()=>{
+    let num = Math.floor(Math.random()*80)+80;
+    document.getElementById("liveBox").innerHTML =
+    "🔴 目前線上 " + num + " 人・正在申請中";
+},3000);
+</script>
 
 </body>
 </html>

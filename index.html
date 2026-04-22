@@ -56,29 +56,32 @@ header {
     align-items: center;
 }
 
-/* ===== 按鈕 ===== */
+/* ===== 按鈕（黑金升級版） ===== */
 .line-btn {
     display: inline-block;
-    background: linear-gradient(90deg, #00cfff, #00e0ff, #00cfff);
-    background-size: 200%;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
+    background: linear-gradient(120deg, #000000, #1a1a1a, #c9a74d, #000000);
+    background-size: 300%;
+    color: #f5d27a;
+    padding: 18px 36px;   /* 變大 */
+    border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 20px;
-    animation: btnFlow 3s linear infinite;
+    font-size: 18px;      /* 字體變大 */
+    margin-top: 30px;     /* 與上方距離 */
+    margin-bottom: 20px;  /* 🔥 與下方拉開 */
+    animation: btnGoldFlow 4s linear infinite;
     transition: 0.3s;
+    letter-spacing: 1px;
 }
 
-@keyframes btnFlow {
+@keyframes btnGoldFlow {
     0% {background-position: 0%;}
     100% {background-position: 200%;}
 }
 
 .line-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0,200,255,0.8);
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255,215,100,0.7);
 }
 
 /* ===== 聊天動畫 ===== */
@@ -120,22 +123,6 @@ header {
     overflow: hidden;
 }
 
-.feature-zone::before {
-    content:"";
-    position:absolute;
-    width:400px;height:400px;
-    background:radial-gradient(circle, rgba(255,255,255,0.3), transparent);
-    top:-100px;left:-100px;
-}
-
-.feature-zone::after {
-    content:"";
-    position:absolute;
-    width:300px;height:300px;
-    background:radial-gradient(circle, rgba(255,200,0,0.3), transparent);
-    bottom:-100px;right:-100px;
-}
-
 .feature-inner {
     max-width:1100px;
     margin:auto;
@@ -163,6 +150,7 @@ header {
     gap:20px;
 }
 
+/* 淺藍卡片（你之前指定） */
 .icon-card {
     background: #e6f7ff;
     padding:20px;
@@ -182,42 +170,12 @@ header {
     padding:120px 20px;
     background:url('shark-bg.png') right center no-repeat;
     background-size:auto 100%;
-    position: relative;
 }
 
 .shark-content {
     max-width:500px;
     margin-left:5%;
     color:white;
-}
-
-/* ===== 成交浮框（置中） ===== */
-.fake-orders {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    pointer-events: none;
-}
-
-.order {
-    background: rgba(255,255,255,0.95);
-    padding: 10px 14px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    font-size: 14px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: orderPop 4s forwards;
-}
-
-@keyframes orderPop {
-    0% {opacity:0; transform:translateY(30px);}
-    20% {opacity:1; transform:translateY(0);}
-    80% {opacity:1;}
-    100% {opacity:0; transform:translateY(-20px);}
 }
 
 /* ===== 卡片 ===== */
@@ -264,16 +222,21 @@ footer {
 <div class="hero">
     <div class="hero-inner">
         <div>
-            <h2>最快10分鐘審核</h2>
-            <p>免擔保・低門檻・全天候申請</p>
-            <a href="https://line.me/ti/p/~@841lsoqs" target="_blank" rel="noopener noreferrer" class="line-btn">立即加入我們</a>
+            <!-- 🔥 改成主打月繳 -->
+            <h2>輕鬆月繳・快速核貸</h2>
+            <p>免擔保・低門檻・彈性月付方案</p>
+
+            <!-- 🔥 LINE連結已套用 -->
+            <a href="https://line.me/ti/p/@841lsoqs" class="line-btn" target="_blank">
+                立即加入LINE借款
+            </a>
         </div>
 
         <div class="chat-demo">
             <div class="chat-bubble user">我現在急需資金，可以申請嗎？</div>
             <div class="chat-bubble bot">可以的 👍 最快10分鐘完成審核！</div>
-            <div class="chat-bubble user">需要擔保嗎？</div>
-            <div class="chat-bubble bot">不需要擔保，流程簡單快速👌</div>
+            <div class="chat-bubble user">可以月繳嗎？</div>
+            <div class="chat-bubble bot">可以分期月付，壓力更輕👌</div>
         </div>
     </div>
 </div>
@@ -290,7 +253,9 @@ footer {
                 <div class="stat">✔ 95% 通過率</div>
             </div>
 
-            <a href="https://line.me/ti/p/~@841lsoqs" target="_blank" rel="noopener noreferrer" class="line-btn">立即諮詢</a>
+            <a href="https://line.me/ti/p/@841lsoqs" class="line-btn" target="_blank">
+                立即諮詢
+            </a>
         </div>
 
         <div class="feature-right">
@@ -305,10 +270,10 @@ footer {
     <div class="shark-content">
         <h2>快速取得資金</h2>
         <p>簡單流程・安全可靠・專人服務</p>
-        <a href="https://line.me/ti/p/~@841lsoqs" target="_blank" rel="noopener noreferrer" class="line-btn">立即諮詢</a>
+        <a href="https://line.me/ti/p/@841lsoqs" class="line-btn" target="_blank">
+            立即諮詢
+        </a>
     </div>
-
-    <div class="fake-orders" id="orders"></div>
 </div>
 
 <div class="section">
@@ -321,27 +286,6 @@ footer {
 <footer>
 © 2026 鯊速貸
 </footer>
-
-<script>
-const names = ["張先生","李先生","王小姐","陳先生","林小姐","黃先生","吳小姐"];
-function randomOrder(){
-    const name = names[Math.floor(Math.random()*names.length)];
-    const amount = Math.floor(Math.random()*90000)+10000;
-    return `💰 ${name} 在1分鐘前成功貸款 ${amount} 元`;
-}
-
-function spawnOrder(){
-    const box = document.getElementById("orders");
-    const div = document.createElement("div");
-    div.className = "order";
-    div.style.animationDuration = (3 + Math.random()*3) + "s";
-    div.innerText = randomOrder();
-    box.appendChild(div);
-    setTimeout(()=>div.remove(),6000);
-}
-
-setInterval(spawnOrder,1200);
-</script>
 
 </body>
 </html>

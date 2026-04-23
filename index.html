@@ -2,265 +2,228 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<title>鯊速貸 - 快速借款平台</title>
+<title>鯊速貸</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
+body{
+    margin:0;
+    font-family:"Segoe UI",Arial;
 }
 
 /* ===== Header ===== */
-header {
-    background: #0a2540;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.logo-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-}
-
-.logo {
-    width: 70px;
-}
-
-/* ===== 橘色流光背景 ===== */
-.hero, .section {
-    background: linear-gradient(270deg, #ff9a00, #ffb347, #ffd27f, #ff9a00);
-    background-size: 400% 400%;
-    animation: bgFlow 8s ease infinite;
-}
-
-@keyframes bgFlow {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-/* ===== HERO ===== */
-.hero {
-    padding: 90px 20px;
-    position: relative;
-}
-
-/* 🔥 強調文字 */
-.hero-highlight {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-/* 🔥 原在線人數樣式（保留但不使用） */
-.fake-live {
-    position: absolute;
-    top: 120px;
-    left: 10%;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-size: 14px;
-}
-
-@media (max-width:768px){
-    .fake-live {
-        left: 50%;
-        transform: translateX(-50%);
-        top: 140px;
-    }
-
-    .hero-highlight{
-        margin-top: 40px;
-    }
-}
-
-.hero-inner {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* ===== 按鈕 ===== */
-.line-btn {
-    display: inline-block;
-    background: linear-gradient(90deg, #000, #bfa14a, #000);
-    background-size: 200%;
-    color: #fff;
-    padding: 22px 45px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 30px;
-    animation: btnFlow 3s linear infinite;
-    transition: 0.3s;
-    font-size: 20px;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-@keyframes btnFlow {
-    0% {background-position: 0%;}
-    100% {background-position: 200%;}
-}
-
-.line-btn:hover {
-    transform: scale(1.1);
-}
-
-/* ===== 聊天動畫 ===== */
-.chat-demo {
-    width: 320px;
-}
-
-.chat-bubble {
-    padding: 12px 16px;
-    border-radius: 16px;
-    margin-bottom: 12px;
-}
-
-.user { background:#eee; }
-.bot { background:#00cfff; color:white; }
-
-/* ===== 功能區 ===== */
-.feature-zone {
-    padding: 80px 20px;
-}
-
-.feature-inner {
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
-}
-
-.feature-right{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:20px;
-}
-
-.icon-card {
-    background: #e6f7ff;
-    padding:20px;
-    border-radius:12px;
+header{
+    background:#0a2540;
+    color:#fff;
     text-align:center;
-    width:100px;
+    padding:25px 15px;
 }
 
-/* ===== 鯊魚區 ===== */
-.shark-section {
-    padding:120px 20px;
-    background:url('shark-bg.png') right center no-repeat;
-    background-size:auto 100%;
+.logo{
+    width:70px;
 }
 
-.shark-content {
-    max-width:500px;
-    margin-left:5%;
-    color:white;
+/* ===== HERO（橘色區） ===== */
+.hero{
+    background:#f89c1c;
+    padding:30px 20px 60px;
+    text-align:center;
 }
 
-/* ===== 服務 ===== */
-.section {
+.hero-title{
+    color:#fff;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+/* ===== 對話框 ===== */
+.chat{
+    max-width:320px;
+    margin:0 auto;
+}
+
+.bubble{
+    padding:14px;
+    border-radius:15px;
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+.user{ background:#ddd; }
+.bot{ background:#19b7d8; color:#fff; }
+
+/* ===== 金色流光按鈕 ===== */
+.btn{
+    position:relative;
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 28px;
+    border-radius:12px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    background:linear-gradient(90deg,#000,#c9a94f,#000);
+    overflow:hidden;
+}
+
+.btn::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.7),transparent);
+    transform:skewX(-20deg);
+    animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+    0%{left:-100%;}
+    100%{left:140%;}
+}
+
+/* ===== 第二區 ===== */
+.feature{
+    background:#eee;
     padding:40px 20px;
 }
 
-.card {
-    background:rgba(255,255,255,0.9);
-    padding:20px;
-    margin:15px auto;
-    max-width:900px;
-    border-radius:10px;
+.feature-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
 }
 
-footer {
+.feature-text{
+    width:55%;
+}
+
+.feature-box{
+    width:45%;
+}
+
+.box{
+    background:#cfe1ea;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:12px;
+    text-align:center;
+}
+
+/* ===== 工人圖區 ===== */
+.worker{
+    background:url('worker-bg.jpg') center/cover no-repeat;
+    aspect-ratio:1/1;
+    position:relative;
+}
+
+.worker-btn{
+    position:absolute;
+    bottom:28%;
+    left:6%;
+}
+
+/* ===== 服務內容 ===== */
+.service{
+    background:#f89c1c;
+    padding:40px 20px;
+}
+
+.service h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.card{
+    background:#e5d9c8;
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+/* ===== Footer ===== */
+footer{
     background:#0a2540;
-    color:white;
+    color:#fff;
     text-align:center;
     padding:20px;
+}
+
+/* ===== 手機優化 ===== */
+@media(max-width:768px){
+
+    .feature-inner{
+        flex-direction:column;
+    }
+
+    .feature-text,
+    .feature-box{
+        width:100%;
+    }
+
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-    <div class="logo-wrap">
-        <img src="shark-logo.png" class="logo">
-        <h1>鯊速貸</h1>
-    </div>
+    <img src="shark-logo.png" class="logo">
+    <h2>鯊速貸</h2>
     <p>快速、安全、即時借款服務</p>
 </header>
 
+<!-- HERO -->
 <div class="hero">
+    <div class="hero-title">1-20萬　當天申請　當天撥款</div>
 
-    <div class="hero-highlight">
-        1-20萬　當天申請　當天撥款
+    <div class="chat">
+        <div class="bubble user">我現在急需資金，可以申請嗎？</div>
+        <div class="bubble bot">可以的 👍 最快10分鐘完成審核！</div>
+        <div class="bubble user">需要擔保嗎？</div>
+        <div class="bubble bot">不需要擔保，流程簡單快速 ✌</div>
     </div>
 
-    <div class="hero-inner">
-        <div>
-            <h2>快速核貸・輕鬆取得資金</h2>
-            <p>免擔保・低門檻・高通過率</p>
-            <a href="https://line.me/ti/p/~@841lsoqs" class="line-btn">立即加入LINE借款</a>
-        </div>
-
-        <div class="chat-demo">
-            <div class="chat-bubble user">我現在急需資金，可以申請嗎？</div>
-            <div class="chat-bubble bot">可以的 👍 最快10分鐘完成審核！</div>
-            <div class="chat-bubble user">需要擔保嗎？</div>
-            <div class="chat-bubble bot">不需要擔保，流程簡單快速👌</div>
-        </div>
-    </div>
+    <a href="https://line.me/ti/p/~@841lsoqs" class="btn">立即加入我們</a>
 </div>
 
-<div class="feature-zone">
+<!-- 第二區 -->
+<div class="feature">
     <div class="feature-inner">
-        <div class="feature-left">
-            <h2>為什麼選擇鯊速貸？</h2>
+
+        <div class="feature-text">
+            <h3>為什麼選擇鯊速貸？</h3>
             <p>快速、安全、透明，讓借款變簡單</p>
 
-            <div class="stats">
-                <div class="stat">✔ 3,200+ 成功案例</div>
-                <div class="stat">✔ 最快10分鐘審核</div>
-                <div class="stat">✔ 95% 通過率</div>
-            </div>
+            <p>✔ 3,200+ 成功案例<br>
+               ✔ 最快10分鐘審核<br>
+               ✔ 95% 通過率</p>
 
-            <a href="https://line.me/ti/p/~@841lsoqs" class="line-btn">立即諮詢</a>
+            <a href="#" class="btn">立即諮詢</a>
         </div>
 
-        <div class="feature-right">
-            <div class="icon-card">⚡<br>快速</div>
-            <div class="icon-card">🔒<br>安全</div>
-            <div class="icon-card">💬<br>回覆</div>
+        <div class="feature-box">
+            <div class="box">⚡<br>快速</div>
+            <div class="box">🔒<br>安全</div>
+            <div class="box">💬<br>回覆</div>
         </div>
+
     </div>
 </div>
 
-<div class="shark-section">
-    <div class="shark-content">
-        <h2>快速取得資金</h2>
-        <p>簡單流程・安全可靠・專人服務</p>
-        <a href="https://line.me/ti/p/~@841lsoqs" class="line-btn">立即諮詢</a>
+<!-- 工人圖 -->
+<div class="worker">
+    <div class="worker-btn">
+        <a href="https://line.me/ti/p/~@841lsoqs" class="btn">立即諮詢</a>
     </div>
 </div>
 
-<div class="section">
-    <h2 style="text-align:center;">服務內容</h2>
+<!-- 服務 -->
+<div class="service">
+    <h2>服務內容</h2>
     <div class="card">💰 小額借款</div>
     <div class="card">⚡ 快速審核</div>
     <div class="card">🔒 資料保護</div>

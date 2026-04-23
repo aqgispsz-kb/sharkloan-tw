@@ -7,11 +7,11 @@
 
 <style>
 
-/* 🔥 只改這裡（整站背景） */
+/* ✅ 改：整站背景變LINE綠 */
 body{
     margin:0;
     font-family:Arial;
-    background: linear-gradient(180deg, #f3e4cf 0%, #e9d6bd 50%, #dfc7a7 100%);
+    background:#06C755;
 }
 
 /* ===== 其他全部不動 ===== */
@@ -35,8 +35,9 @@ h1{
     margin:10px 0;
 }
 
+/* 已經是綠（保留） */
 .hero{
-    background:#ff9800;
+    background:#06C755;
     padding:40px 20px;
     text-align:center;
 }
@@ -58,10 +59,11 @@ h1{
 .btn{
     display:inline-block;
     margin-top:20px;
-    padding:12px 30px;
+    padding:18px 45px;
+    font-size:18px;
     color:#fff;
     text-decoration:none;
-    border-radius:10px;
+    border-radius:12px;
     font-weight:bold;
     background:linear-gradient(120deg,#000,#d4af37,#000);
     background-size:200% auto;
@@ -73,8 +75,9 @@ h1{
     100%{background-position:200% center;}
 }
 
+/* ✅ 改：LINE綠 */
 .feature{
-    background:#eee;
+    background:#06C755;
     padding:40px 20px;
 }
 
@@ -103,6 +106,7 @@ h1{
     position:relative;
     max-width:600px;
     margin:40px auto;
+    background:#06C755; /* ✅ 補綠底避免留白 */
 }
 
 .worker-img-wrap img{
@@ -110,15 +114,19 @@ h1{
     border-radius:10px;
 }
 
+/* 電腦版維持不動 */
 .worker-btn{
-    position:absolute;
-    top:60%;
-    left:10%;
-    transform:translateY(-50%);
+    display:none;
 }
 
+.worker-btn-bottom{
+    text-align:center;
+    margin-top:15px;
+}
+
+/* ✅ 改：LINE綠 */
 .service{
-    background:#ff9800;
+    background:#06C755;
     padding:40px 20px;
     text-align:center;
 }
@@ -138,7 +146,7 @@ footer{
     padding:20px;
 }
 
-/* 📱 手機版（完全不動） */
+/* 📱 手機版 */
 @media(max-width:768px){
 
     .feature-inner{
@@ -155,11 +163,24 @@ footer{
     }
 
     .worker-btn{
-        position:absolute;
-        top:65%;
-        left:8%;
-        transform:translateY(-50%);
-        z-index:20;
+        display:none;
+    }
+
+    /* ✅ 改：按鈕放大＋滿版 */
+    .worker-btn-bottom{
+        display:block;
+        text-align:center;
+        margin-top:10px;
+        padding:0 15px;
+    }
+
+    .worker-btn-bottom .btn{
+        width:100%;
+        max-width:320px;
+        display:block;
+        margin:0 auto;
+        padding:18px 0;
+        font-size:16px;
     }
 
     .btn{
@@ -192,7 +213,7 @@ footer{
             <div class="bubble bot">不需要擔保，流程簡單快速👌</div>
         </div>
 
-        <a href="#" class="btn">立即加入我們</a>
+        <a href="https://line.me/ti/p/@841lsoqs" class="btn">立即加入我們</a>
     </div>
 </div>
 
@@ -220,10 +241,10 @@ footer{
     <div class="worker-img-wrap">
         <img src="worker-bg.jpg">
     </div>
+</div>
 
-    <div class="worker-btn">
-        <a href="#" class="btn">立即諮詢</a>
-    </div>
+<div class="worker-btn-bottom">
+    <a href="https://line.me/ti/p/@841lsoqs" class="btn">立即諮詢</a>
 </div>
 
 <div class="service">

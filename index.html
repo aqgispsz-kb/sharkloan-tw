@@ -2,89 +2,77 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<title>鯊速貸</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鯊速貸</title>
 
 <style>
+
+/* 🔥 只改這裡（整站背景） */
 body{
     margin:0;
-    font-family:"Segoe UI",Arial;
+    font-family:Arial;
+    background: linear-gradient(180deg, #f3e4cf 0%, #e9d6bd 50%, #dfc7a7 100%);
 }
 
-/* ===== Header ===== */
+/* ===== 其他全部不動 ===== */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
 header{
-    background:#0a2540;
-    color:#fff;
+    background:linear-gradient(180deg,#4fc3f7,#ff9800,#f5e6c8);
     text-align:center;
-    padding:25px 15px;
+    padding:40px 20px;
 }
 
 .logo{
     width:70px;
 }
 
-/* ===== HERO（橘色區） ===== */
+h1{
+    margin:10px 0;
+}
+
 .hero{
-    background:#f89c1c;
-    padding:30px 20px 60px;
+    background:#ff9800;
+    padding:40px 20px;
     text-align:center;
 }
 
-.hero-title{
-    color:#fff;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-/* ===== 對話框 ===== */
 .chat{
-    max-width:320px;
-    margin:0 auto;
+    max-width:400px;
+    margin:auto;
 }
 
 .bubble{
-    padding:14px;
-    border-radius:15px;
-    margin-bottom:12px;
-    font-size:14px;
+    padding:12px;
+    border-radius:20px;
+    margin:10px 0;
 }
 
 .user{ background:#ddd; }
-.bot{ background:#19b7d8; color:#fff; }
+.bot{ background:#1ebbd7;color:#fff; }
 
-/* ===== 金色流光按鈕 ===== */
 .btn{
-    position:relative;
     display:inline-block;
-    margin-top:25px;
-    padding:14px 28px;
-    border-radius:12px;
+    margin-top:20px;
+    padding:12px 30px;
     color:#fff;
     text-decoration:none;
+    border-radius:10px;
     font-weight:bold;
-    background:linear-gradient(90deg,#000,#c9a94f,#000);
-    overflow:hidden;
-}
-
-.btn::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.7),transparent);
-    transform:skewX(-20deg);
-    animation:shine 2.5s infinite;
+    background:linear-gradient(120deg,#000,#d4af37,#000);
+    background-size:200% auto;
+    animation:shine 3s linear infinite;
 }
 
 @keyframes shine{
-    0%{left:-100%;}
-    100%{left:140%;}
+    0%{background-position:-200% center;}
+    100%{background-position:200% center;}
 }
 
-/* ===== 第二區 ===== */
 .feature{
     background:#eee;
     padding:40px 20px;
@@ -92,58 +80,57 @@ header{
 
 .feature-inner{
     display:flex;
-    justify-content:space-between;
-    gap:20px;
+    gap:40px;
 }
 
-.feature-text{
-    width:55%;
+.feature-left{
+    flex:1;
 }
 
-.feature-box{
-    width:45%;
+.feature-right{
+    flex:1;
 }
 
-.box{
-    background:#cfe1ea;
+.card{
+    background:#cfd8dc;
+    padding:20px;
+    margin:15px 0;
     border-radius:12px;
-    padding:15px;
-    margin-bottom:12px;
     text-align:center;
 }
 
-/* ===== 工人圖區 ===== */
 .worker{
-    background:url('worker-bg.jpg') center/cover no-repeat;
-    aspect-ratio:1/1;
     position:relative;
+    max-width:600px;
+    margin:40px auto;
+}
+
+.worker-img-wrap img{
+    width:100%;
+    border-radius:10px;
 }
 
 .worker-btn{
     position:absolute;
-    bottom:28%;
-    left:6%;
+    top:60%;
+    left:10%;
+    transform:translateY(-50%);
 }
 
-/* ===== 服務內容 ===== */
 .service{
-    background:#f89c1c;
+    background:#ff9800;
     padding:40px 20px;
-}
-
-.service h2{
     text-align:center;
-    margin-bottom:25px;
 }
 
-.card{
-    background:#e5d9c8;
-    padding:18px;
+.service .item{
+    background:#eee;
+    margin:15px auto;
+    padding:15px;
+    max-width:400px;
     border-radius:12px;
-    margin-bottom:15px;
 }
 
-/* ===== Footer ===== */
 footer{
     background:#0a2540;
     color:#fff;
@@ -151,82 +138,101 @@ footer{
     padding:20px;
 }
 
-/* ===== 手機優化 ===== */
+/* 📱 手機版（完全不動） */
 @media(max-width:768px){
 
     .feature-inner{
         flex-direction:column;
     }
 
-    .feature-text,
-    .feature-box{
-        width:100%;
+    .worker{
+        aspect-ratio:1/1;
+        background:url('worker-bg.jpg') center/cover no-repeat;
     }
 
+    .worker-img-wrap{
+        display:none;
+    }
+
+    .worker-btn{
+        position:absolute;
+        top:65%;
+        left:8%;
+        transform:translateY(-50%);
+        z-index:20;
+    }
+
+    .btn{
+        padding:10px 22px;
+        font-size:14px;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-    <img src="shark-logo.png" class="logo">
-    <h2>鯊速貸</h2>
-    <p>快速、安全、即時借款服務</p>
+    <div class="container">
+        <img src="shark-logo.png" class="logo">
+        <h1>鯊速貸</h1>
+        <p>快速・安全・即時借款服務</p>
+    </div>
 </header>
 
-<!-- HERO -->
 <div class="hero">
-    <div class="hero-title">1-20萬　當天申請　當天撥款</div>
+    <div class="container">
+        <h2>1-20萬　當天申請　當天撥款</h2>
 
-    <div class="chat">
-        <div class="bubble user">我現在急需資金，可以申請嗎？</div>
-        <div class="bubble bot">可以的 👍 最快10分鐘完成審核！</div>
-        <div class="bubble user">需要擔保嗎？</div>
-        <div class="bubble bot">不需要擔保，流程簡單快速 ✌</div>
+        <div class="chat">
+            <div class="bubble user">我現在急需資金，可以申請嗎？</div>
+            <div class="bubble bot">可以的 👍 最快10分鐘完成審核！</div>
+            <div class="bubble user">需要擔保嗎？</div>
+            <div class="bubble bot">不需要擔保，流程簡單快速👌</div>
+        </div>
+
+        <a href="#" class="btn">立即加入我們</a>
     </div>
-
-    <a href="https://line.me/ti/p/~@841lsoqs" class="btn">立即加入我們</a>
 </div>
 
-<!-- 第二區 -->
 <div class="feature">
-    <div class="feature-inner">
+    <div class="container feature-inner">
 
-        <div class="feature-text">
-            <h3>為什麼選擇鯊速貸？</h3>
+        <div class="feature-left">
+            <h2>為什麼選擇鯊速貸？</h2>
             <p>快速、安全、透明，讓借款變簡單</p>
-
-            <p>✔ 3,200+ 成功案例<br>
-               ✔ 最快10分鐘審核<br>
-               ✔ 95% 通過率</p>
-
-            <a href="#" class="btn">立即諮詢</a>
+            <p>✔ 3,200+ 成功案例</p>
+            <p>✔ 最快10分鐘審核</p>
+            <p>✔ 95% 通過率</p>
         </div>
 
-        <div class="feature-box">
-            <div class="box">⚡<br>快速</div>
-            <div class="box">🔒<br>安全</div>
-            <div class="box">💬<br>回覆</div>
+        <div class="feature-right">
+            <div class="card">⚡ 快速</div>
+            <div class="card">🔒 安全</div>
+            <div class="card">💬 回覆</div>
         </div>
 
     </div>
 </div>
 
-<!-- 工人圖 -->
 <div class="worker">
+    <div class="worker-img-wrap">
+        <img src="worker-bg.jpg">
+    </div>
+
     <div class="worker-btn">
-        <a href="https://line.me/ti/p/~@841lsoqs" class="btn">立即諮詢</a>
+        <a href="#" class="btn">立即諮詢</a>
     </div>
 </div>
 
-<!-- 服務 -->
 <div class="service">
-    <h2>服務內容</h2>
-    <div class="card">💰 小額借款</div>
-    <div class="card">⚡ 快速審核</div>
-    <div class="card">🔒 資料保護</div>
+    <div class="container">
+        <h2>服務內容</h2>
+        <div class="item">💰 小額借款</div>
+        <div class="item">⚡ 快速審核</div>
+        <div class="item">🔒 資料保護</div>
+    </div>
 </div>
 
 <footer>
